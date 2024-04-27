@@ -40,8 +40,42 @@ public class APIService {
 		}
 	}
 	
-	public Card getCard() {
-		return null;
+	public Card getCard(String deck_id) {
+		Card card = null;
+		
+		HttpGet request = new HttpGet("https://www.deckofcardsapi.com/api/deck/"+deck_id+"/draw/?count=1");
+		
+		try (CloseableHttpClient httpClient = 
+				HttpClientBuilder.create().disableRedirectHandling().build();
+				CloseableHttpResponse response = httpClient.execute(request)) {
+			
+			HttpEntity entity = response.getEntity();
+			
+			if (entity != null) {
+				String result = EntityUtils.toString(entity);
+				
+				// Separando do json o Dicionário Cards + Remaining 
+				String[] part = result.split("\"cards\": ");
+				String json = (part[1].substring(1));
+				
+				/* 
+				 Removendo os Caracteres }]
+				 add Remaining no dicionário Cards
+				*/
+				part = json.split("}]");
+				json = (part[0]+part[1]);
+				
+				Gson gson = new Gson();
+				card = gson.fromJson(json, Card.class);
+			}
+			return card;
+			
+		} catch (Exception e) {
+			System.err.println("Critical Error");
+			e.printStackTrace();
+			return null;
+		}
 	}
-
+	
 }
+

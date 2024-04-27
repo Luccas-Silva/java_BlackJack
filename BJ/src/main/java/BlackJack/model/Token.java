@@ -46,10 +46,12 @@ public class Token {
 	
 	@Override
 	public String toString() {
-		return "Token [\n Success: " + success + 
-				"\n Deck_id: " + deck_id + 
-				"\n Remaining: " + remaining + 
-				"\n Shuffled:"+ shuffled + 
-				"\n]";
+		return "Token ["
+				+ "\n Success: " + success 
+				+ "\n Deck_id: " + deck_id 
+				+ "\n Remaining: " + remaining 
+				+ "\n Shuffled: "+ shuffled 
+				+ "\n]";
 	}
+	
 }
