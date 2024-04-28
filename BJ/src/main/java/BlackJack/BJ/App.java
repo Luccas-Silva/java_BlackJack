@@ -89,7 +89,22 @@ public class App {
 				
 			} while (option != '2' && player.getCardsSum() < 21);
             
-           
+           if(player.getCardsSum() > 21) {
+        	   System.out.println("____________________");
+               System.out.println("     ♣️ Player ♠️");
+               System.out.println("--------------------");
+               
+               System.out.print("  Cards: ");
+               for (Card c: player.getCards()) { System.out.print(c.getCode()+" ");}
+               System.out.println("");
+               
+               player.setCardsSum(userservice.countCards(player.getCards()));
+               System.out.println("  CardsSum: "+player.getCardsSum());
+               
+               System.out.println("  TotalWins: ("+player.getTotalWins()+"/3)");
+           }
+            
+            
            do {
         	   option = '1';
         	   if (dealer.getCardsSum() <= 11) {
@@ -99,7 +114,7 @@ public class App {
         	   else {
         		   option = '2'; 
         	   }
-			
+        	   
            } while (option != '2' && dealer.getCardsSum() < 21); 
             
             
