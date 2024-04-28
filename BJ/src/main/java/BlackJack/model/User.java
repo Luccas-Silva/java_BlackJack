@@ -6,7 +6,7 @@ public class User {
 	
 	private ArrayList<Card> cards;
 	private Integer cardsSum;
-	private Integer totalWins;
+	private Integer totalWins = 0;
 	
 	public User() {
 
