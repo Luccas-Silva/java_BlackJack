@@ -30,8 +30,8 @@ public class APIService {
 				Gson gson = new Gson();
 				token = gson.fromJson(result, Token.class);
 			}
-			System.err.println("API Connection: Success");
-			System.err.println("ID Deck: "+token.getDeck_id());
+			System.out.println("API Connection: Success");
+			System.out.println("ID Deck: "+token.getDeck_id());
 			return token;
 			
 		} catch (Exception e) {

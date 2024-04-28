@@ -23,6 +23,9 @@ public class User {
 	public void setCards(ArrayList<Card> cards) {
 		this.cards = cards;
 	}
+	public void addCards(ArrayList<Card> card) {
+		this.cards.addAll(card);
+	}
 	
 	public Integer getCardsSum() {
 		return cardsSum;
