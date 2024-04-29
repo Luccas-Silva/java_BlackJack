@@ -34,7 +34,7 @@ public class App {
         System.out.println("====================================================\n");
         
         System.out.print("	Pressione Enter para começar a jogar");
-        String trigger = sc.nextLine();
+		String trigger = sc.nextLine();
         System.out.println("");
 
         do {
@@ -116,7 +116,9 @@ public class App {
         	   option = '1';
         	   
         	   if (dealer.getCardsSum() <= 11) {
+        		   // Inserindo itens na lista de cards do Dealer
         		   dealer.addCards(userservice.buyCards(token.getDeck_id())); 
+        		   // Obtendo soma dos valores da lista de cards do Dealer
         		   dealer.setCardsSum(userservice.countCards(dealer.getCards()));
         	   }
         	   else {option = '2'; }

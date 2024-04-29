@@ -59,10 +59,9 @@ public class APIService {
 				String[] part = result.split("\"cards\": ");
 				String json = (part[1].substring(1));
 				
-				
 				// Removendo os Caracteres }]
-				// add Remaining no dicionário Cards
 				part = json.split("}]");
+				// add Remaining no dicionário Cards
 				json = (part[0]+part[1]);
 				
 				Gson gson = new Gson();
