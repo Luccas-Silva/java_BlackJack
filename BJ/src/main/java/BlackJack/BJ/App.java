@@ -13,12 +13,12 @@ public class App {
     public static void main( String[] args ) {
     	Scanner sc = new  Scanner(System.in);
     	
+    	// Estabelecendo conexão com a API e obtendo Token
     	APIService apiservice = new APIService();
-        
     	Token token = apiservice.getToken();
-          
-    	UserService userservice = new UserService();
         
+    	// Criando usuários e serviço
+    	UserService userservice = new UserService();
     	User dealer = new User();
     	User player = new User();
     	
@@ -44,23 +44,26 @@ public class App {
             System.out.println("     ♥️ Dealer ♦️");
             System.out.println("--------------------");
 			
+            // Criando lista de cards do Dealer
             dealer.setCards(userservice.buyCards(token.getDeck_id()));
             
             System.out.print("  Cards: ");
-            for (Card c: dealer.getCards()) { System.out.print(c.getCode()+" ");}
+            for (Card c: dealer.getCards()) { System.out.print(c.getCode()+" "); }
             System.out.println("");
             
+            // Obtendo soma dos valores da lista de cards do Dealer
             dealer.setCardsSum(userservice.countCards(dealer.getCards()));
             System.out.println("  CardsSum: "+dealer.getCardsSum());
             
             System.out.println("  TotalWins: ("+dealer.getTotalWins()+"/3)");
             
-            //////////////////////////////
-            
-            char option;
+            // Criando lista de cards do Player
             player.setCards(userservice.buyCards(token.getDeck_id()));
+            
+            // Inserindo itens na lista de cards do Player
             player.addCards(userservice.buyCards(token.getDeck_id()));
             
+            char option;
             do {
             	System.out.println("____________________");
                 System.out.println("     ♣️ Player ♠️");
@@ -69,7 +72,8 @@ public class App {
                 System.out.print("  Cards: ");
                 for (Card c: player.getCards()) { System.out.print(c.getCode()+" ");}
                 System.out.println("");
-
+                
+                // Obtendo soma dos valores da lista de cards do Player
                 player.setCardsSum(userservice.countCards(player.getCards()));
                 System.out.println("  CardsSum: "+player.getCardsSum());
                 
@@ -83,7 +87,9 @@ public class App {
                 option = sc.next().toLowerCase().charAt(0); 
                 
                 if (option == '1') {
+                	// Inserindo itens na lista de cards do Player
                 	player.addCards(userservice.buyCards(token.getDeck_id()));
+                	// Obtendo soma dos valores da lista de cards do Player
                 	player.setCardsSum(userservice.countCards(player.getCards()));
                 }
 				
@@ -98,25 +104,24 @@ public class App {
                for (Card c: player.getCards()) { System.out.print(c.getCode()+" ");}
                System.out.println("");
                
+               // Obtendo soma dos valores da lista de cards do Player
                player.setCardsSum(userservice.countCards(player.getCards()));
                System.out.println("  CardsSum: "+player.getCardsSum());
                
                System.out.println("  TotalWins: ("+player.getTotalWins()+"/3)");
            }
             
-            
+           // IA Dealer
            do {
         	   option = '1';
+        	   
         	   if (dealer.getCardsSum() <= 11) {
         		   dealer.addCards(userservice.buyCards(token.getDeck_id())); 
         		   dealer.setCardsSum(userservice.countCards(dealer.getCards()));
         	   }
-        	   else {
-        		   option = '2'; 
-        	   }
+        	   else {option = '2'; }
         	   
-           } while (option != '2' && dealer.getCardsSum() < 21); 
-            
+           } while (option != '2' && dealer.getCardsSum() < 21);             
             
             System.out.println("____________________");
             System.out.println("     ♥️ Dealer ♦️");
@@ -126,13 +131,11 @@ public class App {
             for (Card c: dealer.getCards()) { System.out.print(c.getCode()+" ");}
             System.out.println("");
             
+            // Obtendo soma dos valores da lista de cards do Dealer
             dealer.setCardsSum(userservice.countCards(dealer.getCards()));
             System.out.println("  CardsSum: "+dealer.getCardsSum());
             
             System.out.println("  TotalWins: ("+dealer.getTotalWins()+"/3)");
-            
-            
-           
           
             if (player.getCardsSum() > 21) {
             	dealer.setTotalWins(dealer.getTotalWins() +1);
@@ -163,12 +166,10 @@ public class App {
             	System.out.println("	   Empate");
             	System.out.print("============================");
             }
-            
-
-            
+           
 		} while (player.getTotalWins() < 3 && dealer.getTotalWins() < 3);
         
-        System.out.println("\n	Obrigado por Jogar.\n");
+        System.out.println("\n\n	   Obrigado por Jogar.");
 		System.out.println("  #------------------------------------#");
 		System.out.println("  | Nome: Luccas Silva    | RM: 552890 | ");
 		System.out.println("  #------------------------------------#");

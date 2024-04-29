@@ -6,7 +6,8 @@ public class Token {
 	private String deck_id;
 	private Integer remaining;
 	private Boolean shuffled;
-		
+	
+	// Construtores
 	public Token() {
 	}
 	public Token(Boolean success, String deck_id, Integer remaining, Boolean shuffled) {
@@ -16,6 +17,7 @@ public class Token {
 		this.shuffled = shuffled;
 	}
 	
+	// Getters e Setters
 	public Boolean getSuccess() {
 		return success;
 	}
@@ -44,6 +46,7 @@ public class Token {
 		this.shuffled = shuffled;
 	}
 	
+	// Print dos Dados
 	@Override
 	public String toString() {
 		return "Token ["

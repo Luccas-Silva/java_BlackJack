@@ -8,6 +8,7 @@ public class User {
 	private Integer cardsSum;
 	private Integer totalWins = 0;
 	
+	// Construtores
 	public User() {
 
 	}
@@ -17,6 +18,7 @@ public class User {
 		this.totalWins = totalWins;
 	}
 	
+	// Getters e Setters
 	public ArrayList<Card> getCards() {
 		return cards;
 	}
@@ -41,6 +43,7 @@ public class User {
 		this.totalWins = totalWins;
 	}
 	
+	// Print dos Dados
 	@Override
 	public String toString() {
 		return "User ["

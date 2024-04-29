@@ -7,6 +7,7 @@ public class Card {
 	private String suit;
    	private Integer remaining;
    	
+   	// Construtores
 	public Card() {
 	}
 	public Card(String code, String value, String suit, Integer remaining) {
@@ -16,6 +17,7 @@ public class Card {
 		this.remaining = remaining;
 	}
 	
+	// Getters e Setters
 	public String getCode() {
 		return code;
 	}
@@ -44,6 +46,7 @@ public class Card {
 		this.remaining = remaining;
 	}
 	
+	// Print dos Dados
 	@Override
 	public String toString() {
 		return "Card ["
