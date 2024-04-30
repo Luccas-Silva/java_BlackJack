@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class ConexaoFactory {
 	
-	private static String name = "rm552890";
-	private static String senha = "130604";
+	private static String name = "rm123";
+	private static String senha = "123";
 	
 	public Connection conexao() throws ClassNotFoundException, SQLException {
 		Class.forName("oracle.driver.OracleDriver");
