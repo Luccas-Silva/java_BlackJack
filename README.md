@@ -25,7 +25,7 @@ Os dados processados durante o jogo são salvos no banco de dados para consultas
 - `HTTP Client`
 - `Gson`
 - `JDBC`
-- `Banco de dados relacional (MySQL)`
+- `MySQL`
 
 ## Benefícios
 - **Arquitetura robusta e escalável:** A arquitetura em camadas facilita a manutenção, reutilização e teste do código.
