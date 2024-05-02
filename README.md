@@ -1,4 +1,4 @@
-# Projeto Java BlackJack
+# Java Black Jack
 
 ### Introdução
 Este projeto "Java BlackJack" implementa um sistema completo para gerenciar o jogo de Blackjack, utilizando a Deck of Cards API `(https://www.deckofcardsapi.com/)` e um banco de dados. O projeto segue a arquitetura em camadas e utiliza Maven para organização do código.
