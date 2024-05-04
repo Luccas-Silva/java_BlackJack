@@ -18,17 +18,14 @@ public class CardDAO {
 		this.conexao = new ConexaoFactory().conexao();
 	}
 	
-	public String createTable() throws SQLException{
-		PreparedStatement stmt = conexao.prepareStatement("drop table Card cascade constraints;"
-				+ "create table Card("
-				+ "code varchar(10) primary key,"
-				+ "value varchar(10),"
-				+ "suit varchar(10),"
-				+ "remaining number(3));");
-		stmt.execute();
-		stmt.close();
-		return "Cadastro com sucesso!";
-	}
+	/*
+	 * drop table Card cascade constraints;
+	 * create table Card(
+	 *	code varchar(10) primary key,
+	 *	value varchar(10),
+	 *	suit varchar(10),
+	 *	remaining number(3));
+	 */
 	
 	public String insert(Card card) throws SQLException {
 		PreparedStatement stmt = conexao.prepareStatement("insert into "

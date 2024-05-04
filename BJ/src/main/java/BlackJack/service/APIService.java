@@ -30,6 +30,7 @@ public class APIService {
 				Gson gson = new Gson();
 				token = gson.fromJson(result, Token.class);
 			}
+			
 			System.out.println("API Connection: Success");
 			System.out.println("ID Deck: "+token.getDeck_id());
 			return token;
@@ -61,6 +62,7 @@ public class APIService {
 				
 				// Removendo os Caracteres }]
 				part = json.split("}]");
+				
 				// add Remaining no dicionário Cards
 				json = (part[0]+part[1]);
 				
