@@ -26,7 +26,7 @@ public class CardDAO {
 	 *	suit varchar(10),
 	 *	remaining number(3));
 	 */
-	
+
 	public String insert(Card card) throws SQLException {
 		PreparedStatement stmt = conexao.prepareStatement("insert into "
 				+ "Card values (?,?,?,?)");

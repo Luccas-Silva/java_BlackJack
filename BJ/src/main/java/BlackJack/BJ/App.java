@@ -22,6 +22,7 @@ public class App {
     	User dealer = new User();
     	User player = new User();
     	
+    	
     	System.out.println(" \n====================================================");
     	System.out.println(""
     			+ "  ____  _            _           _            _     \r\n"

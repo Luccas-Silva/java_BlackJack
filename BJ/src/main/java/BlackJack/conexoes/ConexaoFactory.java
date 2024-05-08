@@ -10,7 +10,6 @@ public class ConexaoFactory {
 	private static String senha = "123";
 	
 	public Connection conexao() throws ClassNotFoundException, SQLException {
-		Class.forName("oracle.driver.OracleDriver");
 		return DriverManager.getConnection("jdbc:oracle:thin:@oracle.fiap.com.br:1521:orcl", name, senha);
 	}
 
